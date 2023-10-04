@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+bool is_abundant(int num) {
+    int sum = 1;
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0) {
+            if (num / i == i) {
+                sum += i;
+            } else {
+                sum += i + num / i;
+            }
+        }
+    }
+    return sum > num;
+}
+
+int main() {
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+
+    if (is_abundant(num)) {
+        std::cout << num << " is an abundant number." << std::endl;
+    } else {
+        std::cout << num << " is not an abundant number." << std::endl;
+    }
+
+    return 0;
+}
+
+Abundant number
